@@ -1,4 +1,4 @@
-# ParFlow elease Process
+# ParFlow Release Process
 
 The release process for ParFlow follows the a standard GitHub
 release process.  The following steps should be followed for creating a new
@@ -79,10 +79,10 @@ Example using podman to build and push
 
 ```shell
   VERSION=3.13.0
-  podman build -t docker.io/parflow/parflow:version-$(VERSION) .
+  podman build -t docker.io/parflow/parflow:version-$VERSION .
   podman login docker.io
-  podman push docker.io/parflow/parflow:version-$(VERSION)
-  podman tag docker.io/parflow/parflow:version-$(VERSION) docker.io/parflow/parflow:latest
+  podman push docker.io/parflow/parflow:version-$VERSION
+  podman tag docker.io/parflow/parflow:version-$VERSION docker.io/parflow/parflow:latest
   podman push  docker.io/parflow/parflow:latest
 ```
 
@@ -110,9 +110,8 @@ make PythonCreatePackage
 ### Publish package
 
 If the distributions pass, run the following command to publish the
-distributions. In order to run this command successfully, you must first set the
-`TWINE_USERNAME` and `TWINE_PASSWORD` environment variables to the username
-and password that you will use to authenticate with PyPI.
+distributions. In order to run this command successfully, you must first setup
+an API token.  See the PyPI site for info.
 
 ```shell
 make PythonPublishPackage
